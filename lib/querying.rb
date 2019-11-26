@@ -36,5 +36,5 @@ end
 def select_character_names_and_number_of_books_they_are_in
   "SELECT characters.name, COUNT(characters.name)
   FROM characters
-  ORDER BY characters.name DESC"
+  GROUP BY characters.name"
 end
