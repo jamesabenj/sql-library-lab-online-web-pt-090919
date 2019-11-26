@@ -20,9 +20,9 @@ end
 
 def select_name_and_series_subgenres_of_authors
   "SELECT authors.name, subgenres.name
-  FROM authors
-  INNER JOIN subgenres
-  GROUP BY subgenres.name"
+  FROM authors, subgenres, series
+  WHERE authors.id = series.author_id
+  AND subgenres.id = series.subgenre_id"
 end
 
 def select_series_title_with_most_human_characters
@@ -36,5 +36,7 @@ end
 def select_character_names_and_number_of_books_they_are_in
   "SELECT characters.name, COUNT(characters.name)
   FROM characters
+  INNER JOIN character_books
+  ON characters.
   GROUP BY characters.name"
 end
